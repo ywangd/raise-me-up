@@ -1,0 +1,23 @@
+- name: install system go
+  become: true
+  apt:
+    force_apt_get: yes
+    name: golang
+
+- name: install gvm
+  shell: bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+  args:
+    executable: /bin/bash
+    creates: $HOME/.gvm
+
+- name: install go1.12
+  shell: source $HOME/.gvm/scripts/gvm && gvm install go1.12
+  args:
+    executable: /bin/bash
+    creates: $HOME/.gvm/gos/go1.12
+
+- name: install go1.12
+  shell: source $HOME/.gvm/scripts/gvm && gvm use go1.12 --default
+  args:
+    executable: /bin/bash
+

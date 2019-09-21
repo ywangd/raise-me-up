@@ -1,0 +1,12 @@
+- name: install fzf
+  shell: git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
+  args:
+    executable: /bin/bash
+    creates: $HOME/.fzf
+
+- name: configure fzf
+  blockinfile: 
+    path: $HOME/.bashrc
+    block: |
+      # fzf configuration
+      export FZF_CTRL_R_OPTS='--exact'

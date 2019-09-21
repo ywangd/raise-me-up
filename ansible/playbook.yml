@@ -1,0 +1,19 @@
+- hosts: noob
+  tasks:
+  - name: apt packages
+    become: true
+    apt:
+      force_apt_get: yes
+      name: ['autojump', 'docker.io', 'xclip', 'bison', 'binutils', 'build-essential']
+
+  - name: snap packages
+    become: true
+    snap:
+      name: ['code', 'slack']
+      classic: yes
+
+- hosts: noob
+  roles:
+    - aeimer.install_bat
+    - go
+    - fzf
