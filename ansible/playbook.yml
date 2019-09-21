@@ -25,4 +25,5 @@
     - go
     - fzf
     - dotfiles
+    - nodejs
     - bashrc
