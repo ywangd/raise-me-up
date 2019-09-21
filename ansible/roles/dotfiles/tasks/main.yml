@@ -1,0 +1,24 @@
+- name: prepare deploy identity
+  copy:
+    content: "{{dotfiles_id_rsa}}"
+    dest: $HOME/.ssh/dotfiles_id_rsa
+    mode: '0600'
+
+- name: make sure projects folder exists
+  file:
+    path: $HOME/projects
+    state: directory
+
+- name: clone dotfiles repo
+  git:
+    repo: git@gitlab.com:ywangd/dotfiles.git
+    dest: $HOME/projects/dotfiles
+    key_file: $HOME/.ssh/dotfiles_id_rsa
+    accept_hostkey: true
+
+- name: make dotfiles
+  shell: make
+  args:
+    executable: /bin/bash
+    chdir: $HOME/projects/dotfiles
+

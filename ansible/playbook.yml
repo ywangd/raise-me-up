@@ -12,8 +12,17 @@
       name: ['code', 'slack']
       classic: yes
 
+  - name: identity
+    openssh_keypair:
+      path: $HOME/.ssh/id_rsa
+      size: 2048
+
 - hosts: noob
+  vars_files:
+    - secrets.yml
   roles:
     - aeimer.install_bat
     - go
     - fzf
+    - dotfiles
+    - bashrc

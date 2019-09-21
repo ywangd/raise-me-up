@@ -4,9 +4,3 @@
     executable: /bin/bash
     creates: $HOME/.fzf
 
-- name: configure fzf
-  blockinfile: 
-    path: $HOME/.bashrc
-    block: |
-      # fzf configuration
-      export FZF_CTRL_R_OPTS='--exact'

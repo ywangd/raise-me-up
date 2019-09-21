@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", path: "scripts/bootstrap.sh", privileged: false, env: {
-    "ANSIBLE_VERBOSITY" => ENV['ANSIBLE_VERBOSITY']
+    "ANSIBLE_VERBOSITY" => ENV['ANSIBLE_VERBOSITY'],
+    "ANSIBLE_VAULT_PASSWORD" => ENV['ANSIBLE_VAULT_PASSWORD']
   }
 end
