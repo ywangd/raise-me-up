@@ -1,0 +1,55 @@
+- name: download vault
+  get_url:
+    url: https://releases.hashicorp.com/vault/1.2.3/vault_1.2.3_linux_amd64.zip
+    dest: $HOME/Downloads/vault_1.2.3_linux_amd64.zip
+
+- name: install vault
+  shell: |
+    unzip $HOME/Downloads/vault_1.2.3_linux_amd64.zip -d $HOME/bin/
+  args:
+    creates: $HOME/bin/vault
+
+- name: download consul
+  get_url:
+    url: https://releases.hashicorp.com/consul/1.6.1/consul_1.6.1_linux_amd64.zip
+    dest: $HOME/Downloads/consul_1.6.1_linux_amd64.zip
+
+- name: install consul
+  shell: |
+    unzip $HOME/Downloads/consul_1.6.1_linux_amd64.zip -d $HOME/bin/
+  args:
+    creates: $HOME/bin/consul
+
+- name: download terraform
+  get_url:
+    url: https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
+    dest: $HOME/Downloads/terraform_0.12.9_linux_amd64.zip
+
+- name: install terraform
+  shell: |
+    unzip $HOME/Downloads/terraform_0.12.9_linux_amd64.zip -d $HOME/bin/
+  args:
+    creates: $HOME/bin/terraform
+
+- name: download vagrant
+  get_url:
+    url: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_linux_amd64.zip
+    dest: $HOME/Downloads/vagrant_2.2.5_linux_amd64.zip
+
+- name: install vagrant
+  shell: |
+    unzip $HOME/Downloads/vagrant_2.2.5_linux_amd64.zip -d $HOME/bin/
+  args:
+    creates: $HOME/bin/vagrant
+
+- name: download packer
+  get_url:
+    url: https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip
+    dest: $HOME/Downloads/packer_1.4.3_linux_amd64.zip
+
+- name: install packer
+  shell: |
+    unzip $HOME/Downloads/packer_1.4.3_linux_amd64.zip -d $HOME/bin/
+  args:
+    creates: $HOME/bin/packer
+

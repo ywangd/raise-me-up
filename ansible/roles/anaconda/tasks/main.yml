@@ -1,11 +1,11 @@
 - name: download anaconda2
   get_url:
     url: https://repo.anaconda.com/archive/Anaconda2-2019.07-Linux-x86_64.sh
-    dest: /tmp/anaconda2.sh
+    dest: $HOME/Downloads/Anaconda2-2019.07-Linux-x86_64.sh
     mode: '0755'
 
 - name: install anaconda2
-  shell: bash /tmp/anaconda2.sh -b -p $HOME/anaconda2
+  shell: bash $HOME/Downloads/Anaconda2-2019.07-Linux-x86_64.sh -b -p $HOME/anaconda2
   args:
     creates: $HOME/anaconda2
 
@@ -14,4 +14,5 @@
     eval "$($HOME/anaconda2/bin/conda shell.bash hook)"
     conda init
     conda config --set auto_activate_base false
-
+  args:
+    creates: $HOME/.condarc

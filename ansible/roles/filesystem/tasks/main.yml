@@ -1,0 +1,11 @@
+- name: ensure $HOME/Downloads dir
+  file:
+    path: $HOME/Downloads
+    mode: '0755'
+    state: directory
+
+- name: ensure $HOME/bin dir
+  file:
+    path: $HOME/bin
+    mode: '0755'
+    state: directory
