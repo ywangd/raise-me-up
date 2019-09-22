@@ -1,7 +1,0 @@
-- name: update bashrc
-  blockinfile:
-    path: $HOME/.bashrc
-    block: |
-      source ~/.utils.sh
-      export FZF_CTRL_R_OPTS='--exact'
-

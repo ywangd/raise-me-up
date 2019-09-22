@@ -1,0 +1,14 @@
+- name: update profile
+  blockinfile:
+    path: $HOME/.profile
+    block: |
+      export PATH="$HOME/anaconda2/bin:$PATH"
+
+- name: update bashrc
+  blockinfile:
+    path: $HOME/.bashrc
+    block: |
+      [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
+      source ~/.utils.sh
+      export FZF_CTRL_R_OPTS='--exact'
+
