@@ -4,7 +4,18 @@
     become: true
     apt:
       force_apt_get: yes
-      name: ['autojump', 'docker.io', 'xclip', 'bison', 'binutils', 'build-essential']
+      name: 
+        - autojump
+        - docker.io
+        - xclip
+        - bison
+        - binutils
+        - build-essential
+        - zip
+        - unzip
+        - libssl-dev
+        - libreadline-dev
+        - zlib1g-dev
 
   - name: snap packages
     become: true
@@ -21,10 +32,12 @@
   vars_files:
     - secrets.yml
   roles:
-    - aeimer.install_bat
+    - java
     - go
-    - fzf
-    - dotfiles
-    - nodejs
     - anaconda
+    - ruby
+    - fzf
+    - nodejs
+    - dotfiles
+    - aeimer.install_bat
     - bash

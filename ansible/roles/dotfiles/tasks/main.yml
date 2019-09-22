@@ -22,3 +22,12 @@
     executable: /bin/bash
     chdir: $HOME/projects/dotfiles
 
+- name: install powerline-status
+  shell: conda install -c conda-forge -y powerline-status
+  args:
+    creates: $HOME/anaconda2/lib/python2.7/site-packages/powerline/
+
+- name: install vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: $HOME/.vim/bundle/Vundle.vim

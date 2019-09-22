@@ -1,8 +1,9 @@
 - name: update profile
   blockinfile:
     path: $HOME/.profile
+    insertbefore: '^# if running bash.*'
     block: |
-      export PATH="$HOME/anaconda2/bin:$PATH"
+      export PATH="$HOME/anaconda2/bin:$HOME/.rbenv/bin:$PATH"
 
 - name: update bashrc
   blockinfile:
@@ -11,4 +12,5 @@
       [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
       source ~/.utils.sh
       export FZF_CTRL_R_OPTS='--exact'
+      eval "$(rbenv init -)"
 
