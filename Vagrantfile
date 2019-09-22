@@ -1,6 +1,8 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
+  config.disksize.size = '20GB'
   config.vm.synced_folder ".", "/tmp/raise-me-up"
+
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
     v.cpus = 2

@@ -5,12 +5,38 @@
     block: |
         export PATH="$HOME/bin:$HOME/anaconda2/bin:$HOME/.rbenv/bin:$PATH"
 
-- name: update bashrc
+- name: update bashrc HISTCONTROL
+  lineinfile:
+    path: $HOME/.bashrc
+    regexp: '^HISTCONTROL=.*'
+    line: HISTCONTROL=ignoreboth:ignoredups:erasedups
+
+- name: update bashrc HISTSIZE
+  lineinfile:
+    path: $HOME/.bashrc
+    regexp: '^HISTSIZE=.*'
+    line: HISTSIZE=5000
+
+- name: update bashrc HISTFILESIZE
+  lineinfile:
+    path: $HOME/.bashrc
+    regexp: '^HISTFILESIZE=.*'
+    line: HISTFILESIZE=5000
+
+- name: update bashrc block
   blockinfile:
     path: $HOME/.bashrc
     block: |
+      # Save and reload the history after each command finishes
+      export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+      export EDITOR=vi
+      export FZF_CTRL_R_OPTS='--exact'
       [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
       source ~/.utils.sh
-      export FZF_CTRL_R_OPTS='--exact'
+      complete -C $HOME/bin/vault vault
       eval "$(rbenv init -)"
 
+- name: copy bash aliases
+  copy:
+    src: bash_aliases
+    dest: $HOME/.bash_aliases

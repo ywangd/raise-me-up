@@ -1,5 +1,7 @@
-Raise Me Up - Bootstrap a new working machine
+Raise Me Up - bootstrap a new working machine
 
 ```bash
-ANSIBLE_VAULT_PASSWORD=xxx ANSIBLE_VERBOSITY=3 vagrant provision
+vagrant plugin install vagrant-disksize
+
+ANSIBLE_VAULT_PASSWORD=xxx ANSIBLE_VERBOSITY=1 vagrant provision
 ```
