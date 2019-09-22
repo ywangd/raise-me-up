@@ -1,0 +1,5 @@
+- name: install rustup
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  args:
+    executable: /bin/bash
+    creates: $HOME/.rustup/

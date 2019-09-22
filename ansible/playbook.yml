@@ -12,6 +12,7 @@
         - bison
         - binutils
         - build-essential
+        - sqsh
         - zip
         - unzip
         - libssl-dev
@@ -21,7 +22,12 @@
   - name: snap packages
     become: true
     snap:
-      name: ['code', 'slack']
+      name: 
+        - code
+        - slack
+        - intellij-idea-ultimate
+        - goland
+        - pycharm-professional
       classic: yes
 
   - name: identity
@@ -40,6 +46,7 @@
     - ruby
     - fzf
     - nodejs
+    - rust
     - virtualbox
     - hashicorp
     - dotfiles
