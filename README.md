@@ -9,6 +9,8 @@
 
 
 ## Test with Vagrant
+**NOTE**: recent version of Vagrant is required to supprot the new
+`config.vagrant` setting. Tested with v2.2.5
 
 * Run `vagrant up`
 * To test changes, run `vagrant provision`
