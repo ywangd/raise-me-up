@@ -50,6 +50,7 @@
 - hosts: noob
   roles:
     - filesystem
+    - fusuma
     - tmux
     - java
     - go

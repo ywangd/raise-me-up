@@ -1,0 +1,45 @@
+- name: add user to input group
+  become: true
+  user:
+    append: true
+    name: "{{ansible_env['USER']}}"
+    groups: input
+
+- name: install dependencies
+  become: true
+  apt:
+    force_apt_get: yes
+    name:
+      - libinput-tools
+      - xdotool
+
+- name: ensure touchpad events are sent to gnome desktop
+  shell: gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled
+
+- name: install fusuma
+  become: true
+  shell: |
+    gem install fusuma
+  args:
+    executable: /bin/bash
+    creates: /usr/local/bin/fusuma
+
+- name: create configuration dir
+  file:
+    path: $HOME/.config/fusuma
+    state: directory
+
+- name: create configuration file
+  copy:
+    src: config.yml
+    dest: $HOME/.config/fusuma/config.yml
+
+- name: ensure autostart dir
+  file:
+    path: $HOME/.config/autostart
+    state: directory
+
+- name: create autostart entry
+  copy:
+    src: fusuma.desktop
+    dest: $HOME/.config/autostart/fusuma.desktop
