@@ -56,5 +56,6 @@
     - hashicorp
     - dotfiles
     - aeimer.install_bat
+    - lotion
     - bash
 
