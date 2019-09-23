@@ -28,7 +28,6 @@
     become: true
     snap:
       name: 
-        - code
         - slack
         - postman
         - intellij-idea-ultimate
@@ -51,6 +50,7 @@
     - fzf
     - nodejs
     - rust
+    - vscode
     - chrome
     - virtualbox
     - hashicorp

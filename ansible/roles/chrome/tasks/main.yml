@@ -10,9 +10,14 @@
     url: https://dl.google.com/linux/linux_signing_key.pub
     state: present
 
+- name: update apt cache
+  become: true
+  shell: |
+    apt update
+    true
+
 - name: install google chrome stable
   become: true
   apt:
     force_apt_get: true
     name: google-chrome-stable
-    update_cache: true

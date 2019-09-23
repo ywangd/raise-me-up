@@ -1,0 +1,8 @@
+- name: install vscode
+  become: true
+  snap:
+    name: code
+    classic: yes
+
+- name: install plantuml extension
+  shell: code --install-extension jebbs.plantuml
