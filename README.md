@@ -1,7 +1,15 @@
-Raise Me Up - bootstrap a new working machine
+# Raise Me Up - bootstrap a new working machine
 
-```bash
-vagrant plugin install vagrant-disksize
+**NOTE**: currently only works for Ubuntu 18.04
 
-ANSIBLE_VAULT_PASSWORD=xxx ANSIBLE_VERBOSITY=1 vagrant provision
-```
+## Get Started
+
+1. Clone the repository
+2. Inside the project, run `./up.sh`
+
+
+## Test with Vagrant
+
+* Run `vagrant up`
+* To test changes, run `vagrant provision`
+* Controll verbosity with `export ANSIBLE_VERBOSITY=N` where `N` can be from `0` to `3`.

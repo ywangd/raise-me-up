@@ -1,8 +1,24 @@
+- name: install system openjdk 8
+  become: true
+  apt:
+    force_apt_get: yes
+    name:
+      - openjdk-8-jdk
+
 - name: install sdkman
   shell: curl -s https://get.sdkman.io | bash
   args:
     warn: false
     creates: $HOME/.sdkman
+
+- name: link the system java 8
+  shell: |
+    export SDKMAN_DIR="$HOME/.sdkman"
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk install java 8.0.222-open /usr/lib/jvm/java-8-openjdk-amd64
+  args:
+    executable: /bin/bash
+    creates: $HOME/.sdkman/candidates/java/8.0.222-open
 
 - name: install java 11.0.2
   shell: |
