@@ -15,7 +15,6 @@
         - tree
         - inotify-tools
         - fswatch
-        - docker.io
         - xclip
         - jq
         - autojump
@@ -50,6 +49,7 @@
 - hosts: noob
   roles:
     - filesystem
+    - docker
     - fusuma
     - tmux
     - java
