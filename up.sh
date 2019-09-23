@@ -16,7 +16,7 @@ esac
 doAnsible() {
     pushd ansible
     ansible-galaxy install -r requirements.yml
-    ansible-playbook -i inventory/local.ini --vault-password-file password-wrapper.sh playbook.yml
+    ansible-playbook -i inventory/local.ini playbook.yml
 }
 
 upUbuntu() {

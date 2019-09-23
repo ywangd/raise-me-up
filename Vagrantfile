@@ -16,6 +16,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "scripts/vagrantup.sh", privileged: false, env: {
     "SKIP_INIT" => ENV['SKIP_INIT'],
     "ANSIBLE_VERBOSITY" => ENV['ANSIBLE_VERBOSITY'],
-    "ANSIBLE_VAULT_PASSWORD" => ENV['ANSIBLE_VAULT_PASSWORD']
   }
 end

@@ -37,6 +37,7 @@
       eval "$(rbenv init -)"
 
 - name: copy bash aliases
-  copy:
-    src: bash_aliases
-    dest: $HOME/.bash_aliases
+  file:
+    src: "{{ playbook_dir }}/roles/bash/files/bash_aliases"
+    path: $HOME/.bash_aliases
+    state: link

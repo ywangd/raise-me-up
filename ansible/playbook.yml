@@ -36,8 +36,6 @@
       size: 2048
 
 - hosts: noob
-  vars_files:
-    - secrets.yml
   roles:
     - filesystem
     - java

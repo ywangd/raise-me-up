@@ -1,26 +1,12 @@
-- name: prepare deploy identity
-  copy:
-    content: "{{dotfiles_id_rsa}}"
-    dest: $HOME/.ssh/dotfiles_id_rsa
-    mode: '0600'
-
 - name: make sure projects folder exists
   file:
     path: $HOME/projects
     state: directory
 
-- name: clone dotfiles repo
+- name: install Vundle
   git:
-    repo: git@gitlab.com:ywangd/dotfiles.git
-    dest: $HOME/projects/dotfiles
-    key_file: $HOME/.ssh/dotfiles_id_rsa
-    accept_hostkey: true
-
-- name: make dotfiles
-  shell: make
-  args:
-    executable: /bin/bash
-    chdir: $HOME/projects/dotfiles
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: $HOME/.vim/bundle/Vundle.vim
 
 - name: install powerline-status
   shell: $HOME/anaconda2/bin/conda install -c conda-forge -y powerline-status
@@ -28,7 +14,6 @@
     executable: /bin/bash
     creates: $HOME/anaconda2/lib/python2.7/site-packages/powerline/
 
-- name: install vundle
-  git:
-    repo: https://github.com/VundleVim/Vundle.vim.git
-    dest: $HOME/.vim/bundle/Vundle.vim
+- name: Link dot files
+  import_tasks: ubuntu.yml
+  when: ansible_facts['distribution'] == "Ubuntu"

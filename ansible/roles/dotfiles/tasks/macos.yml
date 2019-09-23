@@ -1,0 +1,19 @@
+- file:
+    src: "{{ playbook_dir }}/roles/dotfiles/files/{{ansible_distribution}}/vimrc"
+    path: $HOME/.vimrc
+    state: link
+
+- file:
+    src: "{{ playbook_dir }}/roles/dotfiles/files/{{ansible_distribution}}/tmux.conf"
+    path: $HOME/.tmux.conf
+    state: link
+
+- file:
+    src: "{{ playbook_dir }}/roles/dotfiles/files/{{ansible_distribution}}/gitignore"
+    path: $HOME/.gitignore_global
+    state: link
+
+- file:
+    src: "{{ playbook_dir }}/roles/dotfiles/files/utils.sh"
+    path: $HOME/.utils.sh
+    state: link
