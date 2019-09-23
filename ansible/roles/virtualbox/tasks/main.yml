@@ -14,5 +14,5 @@
 
 - name: Fix any broken package dependencies
   become: true
-  shell: apt-get install -f
+  shell: apt-get install -f -y
 
