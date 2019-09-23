@@ -5,6 +5,9 @@
     apt:
       force_apt_get: yes
       name: 
+        - tree
+        - inotify-tools
+        - fswatch
         - docker.io
         - xclip
         - jq
@@ -18,6 +21,8 @@
         - libssl-dev
         - libreadline-dev
         - zlib1g-dev
+      cache_valid_time: 3600
+      update_cache: true
 
   - name: snap packages
     become: true
@@ -25,6 +30,7 @@
       name: 
         - code
         - slack
+        - postman
         - intellij-idea-ultimate
         - goland
         - pycharm-professional
@@ -45,6 +51,7 @@
     - fzf
     - nodejs
     - rust
+    - chrome
     - virtualbox
     - hashicorp
     - dotfiles

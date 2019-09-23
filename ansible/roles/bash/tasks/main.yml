@@ -3,7 +3,8 @@
     path: $HOME/.profile
     insertbefore: '^# if running bash.*'
     block: |
-        export PATH="$HOME/bin:$HOME/anaconda2/bin:$HOME/.rbenv/bin:$PATH"
+      export GOPATH="$HOME/go"
+      export PATH="$HOME/bin:$HOME/anaconda2/bin:$HOME/.rbenv/bin:$GOPATH/bin:$PATH"
 
 - name: update bashrc HISTCONTROL
   lineinfile:

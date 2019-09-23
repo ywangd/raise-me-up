@@ -9,3 +9,9 @@
     path: $HOME/bin
     mode: '0755'
     state: directory
+
+- name: ensure $HOME/go dir
+  file:
+    path: $HOME/go
+    mode: '0755'
+    state: directory
