@@ -1,3 +1,8 @@
+unless Vagrant.has_plugin?("vagrant-disksize")
+  puts 'Installing vagrant-disksize Plugin...'
+  system('vagrant plugin install vagrant-disksize')
+end
+
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
   config.disksize.size = '20GB'

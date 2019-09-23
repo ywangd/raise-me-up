@@ -7,6 +7,7 @@
   become: true
   expect:
     command: apt install -y /tmp/virtualbox-5.2_5.2.32-132073.deb
+    timeout: 900
     creates: /usr/bin/virtualbox
     responses:
       (.*)Do you want to continue?(.*): 'Y'

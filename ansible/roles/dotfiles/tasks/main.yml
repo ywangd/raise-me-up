@@ -23,8 +23,9 @@
     chdir: $HOME/projects/dotfiles
 
 - name: install powerline-status
-  shell: conda install -c conda-forge -y powerline-status
+  shell: $HOME/anaconda2/bin/conda install -c conda-forge -y powerline-status
   args:
+    executable: /bin/bash
     creates: $HOME/anaconda2/lib/python2.7/site-packages/powerline/
 
 - name: install vundle
