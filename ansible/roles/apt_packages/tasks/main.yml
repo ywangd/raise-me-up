@@ -1,0 +1,30 @@
+- name: install apt packages
+  become: true
+  apt:
+    force_apt_get: yes
+    name:
+      - gnome-tweaks
+      - chrome-gnome-shell
+      - vim
+      - tmux
+      - fonts-powerline
+      - curl
+      - htop
+      - tree
+      - inotify-tools
+      - fswatch
+      - xclip
+      - jq
+      - autojump
+      - bison
+      - binutils
+      - build-essential
+      - sqsh
+      - zip
+      - unzip
+      - libssl-dev
+      - libreadline-dev
+      - zlib1g-dev
+    cache_valid_time: 3600
+    update_cache: true
+

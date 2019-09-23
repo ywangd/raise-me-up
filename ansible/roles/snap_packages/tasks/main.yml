@@ -1,0 +1,11 @@
+- name: install snap packages
+  become: true
+  snap:
+    name:
+      - slack
+      - postman
+      - intellij-idea-ultimate
+      - goland
+      - pycharm-professional
+    classic: yes
+
