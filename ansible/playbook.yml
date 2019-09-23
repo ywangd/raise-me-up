@@ -5,6 +5,7 @@
     apt:
       force_apt_get: yes
       name: 
+        - curl
         - htop
         - tree
         - inotify-tools

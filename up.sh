@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 case $(uname -v) in
     *Ubuntu*)
         OS=Ubuntu
@@ -22,6 +24,9 @@ doAnsible() {
 upUbuntu() {
     [[ "$SKIP_INIT" == "0" || -z $SKIP_INIT ]] && {
         echo 'Bootstrapping Ansible'
+        sudo test -f "/etc/sudoers.d/$USER" || sudo cat > "/etc/sudoers.d/$USER" <<EOF
+$USER ALL=(ALL) NOPASSWD:ALL
+EOF
         sudo apt update
         sudo apt-get install -y software-properties-common 
         sudo apt-get install -y python-pexpect
