@@ -12,6 +12,7 @@
     nvm install 8 --lts
   args:
     executable: /bin/bash
+    creates: $HOME/.nvm/versions/node/v8.16.1/
 
 - name: use nodejs 8
   shell: |
@@ -20,4 +21,14 @@
     nvm use 8
   args:
     executable: /bin/bash
+
+- name: install typescript
+  shell: |
+    export NVM_DIR="$HOME/.nvm" 
+    source "$NVM_DIR/nvm.sh" 
+    nvm use 8
+    npm install -g typescript
+  args:
+    executable: /bin/bash
+    creates: $HOME/.nvm/versions/node/v8.16.1/lib/node_modules/typescript/
 
