@@ -3,6 +3,11 @@
     path: $HOME/projects
     state: directory
 
+- name: make sure applications folder exists
+  file:
+    path: $HOME/.local/share/applications
+    state: directory
+
 - name: clone lotion repo
   git:
     repo: https://github.com/puneetsl/lotion.git
@@ -15,4 +20,4 @@
     ./install.sh
   args:
     executable: /bin/bash
-    creates: $HOME/.local/share/applications
+    creates: $HOME/.local/share/applications/Notion.desktop

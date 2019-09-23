@@ -5,7 +5,11 @@
     apt:
       force_apt_get: yes
       name: 
+        - gnome-tweaks
+        - chrome-gnome-shell
         - vim
+        - tmux
+        - fonts-powerline
         - curl
         - htop
         - tree
@@ -46,6 +50,7 @@
 - hosts: noob
   roles:
     - filesystem
+    - tmux
     - java
     - go
     - anaconda
