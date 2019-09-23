@@ -42,3 +42,10 @@
     src: "{{ playbook_dir }}/roles/bash/files/bash_aliases"
     path: $HOME/.bash_aliases
     state: link
+
+- name: add line to deduplicate PATH entries
+  lineinfile:
+    path: $HOME/.bashrc
+    insertafter: EOF
+    line: "export PATH=$(perl -e 'print join(\":\", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
+
