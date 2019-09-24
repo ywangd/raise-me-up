@@ -17,6 +17,7 @@
       - xclip
       - jq
       - autojump
+      - grip
       - bison
       - binutils
       - build-essential

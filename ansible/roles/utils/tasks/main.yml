@@ -1,0 +1,11 @@
+- name: link simple-http-with-upload
+  file:
+    src: "{{ playbook_dir }}/roles/utils/files/simple-http-with-upload.py"
+    path: $HOME/bin/simple-http.py
+    state: link
+
+- name: download hr command
+  get_url:
+    url: https://raw.githubusercontent.com/LuRsT/hr/master/hr
+    dest: $HOME/bin/hr
+    mode: '0755'

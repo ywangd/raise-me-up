@@ -1,4 +1,4 @@
-# Raise Me Up - bootstrap a new development machine with Ansible
+# Raise Me Up - bootstrap a development machine with Ansible
 
 **NOTE**: currently only works for Ubuntu 18.04
 
