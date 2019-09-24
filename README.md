@@ -1,4 +1,4 @@
-# Raise Me Up - bootstrap a new development machine
+# Raise Me Up - bootstrap a new development machine with Ansible
 
 **NOTE**: currently only works for Ubuntu 18.04
 
@@ -8,10 +8,11 @@
 2. Inside the project, run `./up.sh`
 
 
-## Test with Vagrant
+## Test with Vagrant and VirtualBox
 **NOTE**: recent version of Vagrant is required to supprot the new
 `config.vagrant` setting. Tested with v2.2.5
 
 * Run `vagrant up`
 * To test changes, run `vagrant provision`
 * Controll verbosity with `export ANSIBLE_VERBOSITY=N` where `N` can be from `0` to `3`.
+

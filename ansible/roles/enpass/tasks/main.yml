@@ -1,0 +1,23 @@
+- name: create enpass source list
+  become: true
+  copy:
+    content: "deb https://apt.enpass.io/ stable main"
+    dest: /etc/apt/sources.list.d/enpass.list
+
+- name: add enpass signing key
+  become: true
+  apt_key:
+    url: https://apt.enpass.io/keys/enpass-linux.key
+    state: present
+
+- name: update apt cache
+  become: true
+  shell: |
+    apt update
+    true
+
+- name: install enpass stable
+  become: true
+  apt:
+    force_apt_get: true
+    name: enpass

@@ -5,6 +5,7 @@
     name:
       - gnome-tweaks
       - chrome-gnome-shell
+      - git
       - vim
       - tmux
       - fonts-powerline
