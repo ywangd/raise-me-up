@@ -1,4 +1,4 @@
-# Raise Me Up - bootstrap a new working machine
+# Raise Me Up - bootstrap a new development machine
 
 **NOTE**: currently only works for Ubuntu 18.04
 
