@@ -1,0 +1,10 @@
+- name: install gbt
+  shell: |
+    set -e
+    source $HOME/.gvm/scripts/gvm
+    gvm use system
+    go get -u github.com/jtyr/gbt/cmd/gbt
+    ln -s $(which gbt) $HOME/bin/gbt
+  args:
+    executable: /bin/bash
+    creates: $HOME/bin/gbt

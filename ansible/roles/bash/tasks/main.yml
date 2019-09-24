@@ -3,8 +3,21 @@
     path: $HOME/.profile
     insertbefore: '^# if running bash.*'
     block: |
-      export GOPATH="$HOME/go"
-      export PATH="$HOME/bin:$HOME/anaconda2/bin:$HOME/.rbenv/bin:$GOPATH/bin:$PATH"
+      export PATH="$HOME/bin:$HOME/anaconda2/bin:$HOME/.rbenv/bin:$PATH"
+
+- name: update PS1 color
+  lineinfile:
+    path: $HOME/.bashrc
+    regexp: '^(    PS1=.*\\033.*\])(\\\$ .)$'
+    backrefs: true
+    line: '\1\\n\2'
+
+- name: update PS1 no-color
+  lineinfile:
+    path: $HOME/.bashrc
+    regexp: '^(    PS1=.*\\w)(\\\$ .)$'
+    backrefs: true
+    line: '\1\\n\2'
 
 - name: update bashrc HISTCONTROL
   lineinfile:

@@ -15,14 +15,9 @@
     mode: '0755'
     state: directory
 
-- name: ensure $HOME/go dir
-  file:
-    path: $HOME/go
-    mode: '0755'
-    state: directory
-
 - name: ensure $HOME/tmp dir
   file:
     path: $HOME/tmp
     mode: '0755'
     state: directory
+
