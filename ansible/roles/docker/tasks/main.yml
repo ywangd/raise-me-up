@@ -1,4 +1,5 @@
 - name: install docker
+  become: true
   apt:
     force_apt_get: yes
     name: docker.io
