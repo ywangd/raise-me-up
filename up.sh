@@ -2,23 +2,9 @@
 
 set -x
 
-case $(uname -v) in
-    *Ubuntu*)
-        OS=Ubuntu
-        ;;
-    *Darwin*)
-        OS=Darwin
-        ;;
-    *)
-        echo Unknown Operating System
-        exit 1
-        ;;
-esac
-
 doAnsible() {
-    pushd ansible
-    ansible-galaxy install -r requirements.yml
-    ansible-playbook -i inventory/local.ini playbook.yml
+    ansible-galaxy install -r ansible/requirements.yml
+    ansible-playbook -i ${INVENTORY_FILE} ansible/playbook.yml
 }
 
 upUbuntu() {
@@ -37,12 +23,31 @@ EOF
     doAnsible
 }
 
-case $OS in
-    Ubuntu)
-        up$OS
+upDarwin() {
+    echo "MacOS not supported yet"
+    exit 1
+}
+
+INVENTORY_FILE='ansible/inventory/default.yml'
+while getopts ":i:" opt; do
+    case $opt in
+        i)
+            INVENTORY_FILE=${OPTARG}
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+case $(uname -v) in
+    *Ubuntu*)
+        upUbuntu
+        ;;
+    *Darwin*)
+        upDarwin
         ;;
     *)
-        echo $OS: Operating System not supported yet
+        echo "Unknown Operating System"
         exit 1
         ;;
 esac
+

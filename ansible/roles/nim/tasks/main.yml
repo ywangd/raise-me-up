@@ -1,0 +1,17 @@
+- name: install choosenim 
+  shell: |
+    export CHOOSENIM_NO_ANALYTICS=1
+    sh <(curl https://nim-lang.org/choosenim/init.sh -sSf) -y
+  args:
+    warn: false
+    executable: /bin/bash
+    creates: $HOME/.choosenim/
+
+- name: ensure PATH
+  blockinfile:
+    path: $HOME/.profile
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: nim PATH"
+    insertbefore: '^# if running bash.*'
+    block: |
+      export PATH="$HOME/.nimble/bin:$PATH"
+

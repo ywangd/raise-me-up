@@ -1,28 +1,34 @@
-- hosts: noob
-  roles:
-    - apt_packages
-    - snap_packages
-    - filesystem
-    - docker
-    - tmux
-    - java
-    - go
-    - gbt
-    - anaconda
-    - ruby
-    - fzf
-    - nodejs
-    - rust
-    - vscode
-    - chrome
-    - enpass
-    - fusuma
-    - virtualbox
-    - hashicorp
-    - dotfiles
-    - aeimer.install_bat
-    - lotion
-    - zoom
-    - utils
-    - bash
-
+---
+- hosts: all
+  tasks:
+    - include_role:
+        name: "{{item}}"
+      when: (item not in (disabled_roles | default([]))) and 
+            ((all_roles | default(false)) or item in (enabled_roles | default([])))
+      loop:
+        - apt_packages
+        - snap_packages
+        - filesystem
+        - docker
+        - tmux
+        - java
+        - go
+        - gbt
+        - anaconda
+        - ruby
+        - fzf
+        - nodejs
+        - rust
+        - nim
+        - vscode
+        - chrome
+        - enpass
+        - fusuma
+        - virtualbox
+        - hashicorp
+        - dotfiles
+        - aeimer.install_bat
+        - lotion
+        - zoom
+        - utils
+        - bash
