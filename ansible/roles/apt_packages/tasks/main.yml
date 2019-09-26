@@ -3,6 +3,8 @@
   apt:
     force_apt_get: yes
     name:
+      - apt-file
+      - libsecret-tools
       - gnome-tweaks
       - chrome-gnome-shell
       - git
