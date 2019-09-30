@@ -1,0 +1,12 @@
+- name: install direnv
+  become: true
+  apt:
+    force_apt_get: yes
+    name: direnv
+
+- name: enable bash hook
+  blockinfile:
+    path: $HOME/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: direnv hook"
+    block: eval "$(direnv hook bash)"
+
