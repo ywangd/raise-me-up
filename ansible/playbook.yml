@@ -20,6 +20,7 @@
         - nodejs
         - rust
         - nim
+        - direnv
         - vscode
         - drawio
         - chrome
