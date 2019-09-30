@@ -11,3 +11,9 @@
     name: "{{ansible_env['USER']}}"
     groups: docker
 
+- name: install docker-compose
+  become: true
+  apt:
+    force_apt_get: yes
+    name: docker-compose
+

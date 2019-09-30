@@ -3,6 +3,11 @@
     path: $HOME/.ssh/id_rsa
     size: 2048
 
+- name: identity
+  openssh_keypair:
+    path: $HOME/.ssh/id_rsa_alt
+    size: 2048
+
 - name: ensure $HOME/Downloads dir
   file:
     path: $HOME/Downloads

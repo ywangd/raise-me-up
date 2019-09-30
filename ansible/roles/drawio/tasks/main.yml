@@ -1,0 +1,7 @@
+- name: install drawio
+  become: true
+  snap:
+    name: drawio
+    channel: latest/edge
+    classic: yes
+
