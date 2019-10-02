@@ -1,0 +1,5 @@
+- name: install mongo clients
+  become: true
+  apt:
+    force_apt_get: yes
+    name: mongo-clients

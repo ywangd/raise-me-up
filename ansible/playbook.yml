@@ -31,5 +31,6 @@
         - aeimer.install_bat
         - lotion
         - zoom
+        - mongodb
         - utils
         - bash
