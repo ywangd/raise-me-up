@@ -1,5 +1,5 @@
-- name: install mongo clients
+- name: install mongodb clients
   become: true
   apt:
     force_apt_get: yes
-    name: mongo-clients
+    name: mongodb-clients
