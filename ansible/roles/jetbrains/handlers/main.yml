@@ -1,0 +1,3 @@
+- name: apply sysctl change
+  become: true
+  shell: sysctl -p --system
