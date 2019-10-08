@@ -21,9 +21,10 @@
         - rust
         - nim
         - vscode
-        - drawio
+        - k8s
         - chrome
         - enpass
+        - drawio
         - fusuma
         - virtualbox
         - hashicorp

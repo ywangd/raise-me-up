@@ -26,3 +26,8 @@
     mode: '0755'
     state: directory
 
+- name: ensure $HOME/.bash_aliases
+  file:
+    path: $HOME/.bash_aliases
+    mode: '0644'
+    state: touch

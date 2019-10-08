@@ -1,2 +1,0 @@
-alias ll='ls -lhF'
-alias xclip='xclip -sel clipboard'
