@@ -30,6 +30,7 @@
       - zlib1g-dev
       - libltdl-dev
       - uuid
+      - fbreader
     cache_valid_time: 3600
     update_cache: true
 
