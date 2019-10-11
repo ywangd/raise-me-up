@@ -32,3 +32,13 @@
     executable: /bin/bash
     creates: $HOME/.nvm/versions/node/v8.16.1/lib/node_modules/typescript/
 
+- name: install angular-cli
+  shell: |
+    export NVM_DIR="$HOME/.nvm" 
+    source "$NVM_DIR/nvm.sh" 
+    nvm use 8
+    npm install -g angular-cli
+  args:
+    executable: /bin/bash
+    creates: $HOME/.nvm/versions/node/v8.16.1/bin/ng
+

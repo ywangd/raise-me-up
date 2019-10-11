@@ -1,0 +1,15 @@
+- name: install jetbrains IDEs
+  become: true
+  snap:
+    name:
+      - intellij-idea-ultimate
+      - goland
+      - pycharm-professional
+    classic: yes
+
+- name: increase inotify watch limit
+  become: true
+  copy:
+    content: 'fs.inotify.max_user_watches = 524288'
+    dest: /etc/sysctl.d/idea.conf
+  notify: apply sysctl change

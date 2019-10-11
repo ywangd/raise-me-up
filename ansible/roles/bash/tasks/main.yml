@@ -50,11 +50,13 @@
       complete -C $HOME/bin/vault vault
       eval "$(rbenv init -)"
 
-- name: copy bash aliases
-  file:
-    src: "{{ playbook_dir }}/roles/bash/files/bash_aliases"
+- name: add bash aliases
+  blockinfile:
     path: $HOME/.bash_aliases
-    state: link
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: general bash aliases"
+    block: |
+      alias ll='ls -lhF'
+      alias xclip='xclip -sel clipboard'
 
 - name: add line to deduplicate PATH entries
   lineinfile:

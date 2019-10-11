@@ -22,9 +22,10 @@
         - nim
         - direnv
         - vscode
-        - drawio
+        - k8s
         - chrome
         - enpass
+        - drawio
         - fusuma
         - virtualbox
         - hashicorp
@@ -32,5 +33,6 @@
         - aeimer.install_bat
         - lotion
         - zoom
+        - mongodb
         - utils
         - bash

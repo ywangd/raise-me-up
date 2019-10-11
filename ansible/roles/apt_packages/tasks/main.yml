@@ -28,6 +28,10 @@
       - libssl-dev
       - libreadline-dev
       - zlib1g-dev
+      - libltdl-dev
+      - uuid
+      - fbreader
+      - flameshot
     cache_valid_time: 3600
     update_cache: true
 

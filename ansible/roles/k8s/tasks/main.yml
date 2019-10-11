@@ -1,0 +1,32 @@
+- name: install kubectl
+  become: true
+  snap:
+    name:
+      - kubectl
+    classic: yes
+
+- name: download minikube package
+  get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube_1.4.0.deb
+    dest: $HOME/Downloads/minikube_1.4.0.deb
+
+- name: install minikube
+  become: true
+  shell: "dpkg -i {{ansible_env.HOME}}/Downloads/minikube_1.4.0.deb"
+  args:
+    creates: /usr/bin/minikube
+
+- name: configure k8s auto-completion
+  blockinfile:
+    path: $HOME/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: k8s auto-completion"
+    block: |
+      source <(minikube completion bash)
+      source <(kubectl completion bash)
+
+- name: alias activation of minikube docker registry
+  lineinfile:
+    path: $HOME/.bash_aliases
+    line: "alias minidocker='eval $(minikube docker-env)'"
+    insertafter: EOF
+
