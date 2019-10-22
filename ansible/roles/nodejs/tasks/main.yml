@@ -42,3 +42,13 @@
     executable: /bin/bash
     creates: $HOME/.nvm/versions/node/v8.16.1/bin/ng
 
+- name: install vue-cli
+  shell: |
+    export nvm_dir="$home/.nvm" 
+    source "$nvm_dir/nvm.sh" 
+    nvm use 8
+    npm install -g @vue/cli
+  args:
+    executable: /bin/bash
+    creates: $home/.nvm/versions/node/v8.16.1/bin/vue
+
