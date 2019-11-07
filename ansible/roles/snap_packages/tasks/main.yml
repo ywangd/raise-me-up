@@ -5,5 +5,14 @@
       - slack
       - postman
       - shell2http
+      - helm
+    classic: yes
+
+- name: install snap beta packages
+  become: true
+  snap:
+    channel: beta
+    name:
+      - azure-cli
     classic: yes
 

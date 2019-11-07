@@ -48,6 +48,7 @@
     source "$nvm_dir/nvm.sh" 
     nvm use 8
     npm install -g @vue/cli
+    npm install -g @vue/cli-init
   args:
     executable: /bin/bash
     creates: $home/.nvm/versions/node/v8.16.1/bin/vue
